@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MyBlog.Presentation.Models.GuestArticleListVM>
+
+@{
+    ViewData["Title"] = "Top 5 Articles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Popular Articles</h1>
+    <div class="list-group">
+        @foreach (var item in Model)
+        {
+            <a href="@Url.Action("Read", "Home", new { id = item.Id })" class="list-group-item list-group-item-action flex-column align-items-start mb-3 shadow-sm rounded" style="background-color: #ffffff; border: 1px solid #e0e0e0;">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1" style="color: #333333; font-weight: 600;">@Html.DisplayFor(modelItem => item.Title)</h5>
+                    <small class="text-muted">@Html.DisplayFor(modelItem => item.CreadtedDate)</small>
+                </div>
+                <div class="d-flex w-100 align-items-center mt-2">
+                    @if (item.Image is null)
+                    {
+                        <div class="no-image mr-3" style="color: red; font-weight: bold;">No Image</div>
+                    }
+                    else
+                    {
+                        <img src="@($"data:image/png;base64,{Convert.ToBase64String(item.Image)}")" class="img-thumbnail mr-3" alt="Article Image" style="height: 50px; width: 50px; object-fit: cover; border-radius: 50%;">
+                    }
+                    <p class="mb-1" style="color: #555555;">@Html.DisplayFor(modelItem => item.AuthorFirstName) @Html.DisplayFor(modelItem => item.AuthorLastName)</p>
+                </div>
+                <div class="mt-2">
+                    <small style="color: #777777;">Read Time: @Html.DisplayFor(modelItem => item.ReadTime) min</small>
+                    <small style="color: #777777; margin-left: 1rem;">Views: @Html.DisplayFor(modelItem => item.ViewCount)</small>
+                </div>
+            </a>
+        }
+    </div>
+</div>
+
+<style>
+    .list-group-item:hover {
+        background-color: #f7f7f7;
+        transition: background-color 0.3s ease;
+    }
+
+    .shadow-sm {
+        box-shadow: 0 .125rem .25rem rgba(0, 0, 0, 0.075) !important;
+    }
+
+    .rounded {
+        border-radius: .25rem !important;
+    }
+
+    .img-thumbnail {
+        border: none;
+    }
+</style>

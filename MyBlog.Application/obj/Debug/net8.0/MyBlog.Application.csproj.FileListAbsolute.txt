@@ -1,0 +1,17 @@
+C:\Users\sonaa\source\repos\MyBlog\MyBlog.Application\bin\Debug\net8.0\MyBlog.Application.deps.json
+C:\Users\sonaa\source\repos\MyBlog\MyBlog.Application\bin\Debug\net8.0\MyBlog.Application.dll
+C:\Users\sonaa\source\repos\MyBlog\MyBlog.Application\bin\Debug\net8.0\MyBlog.Application.pdb
+C:\Users\sonaa\source\repos\MyBlog\MyBlog.Application\obj\Debug\net8.0\MyBlog.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sonaa\source\repos\MyBlog\MyBlog.Application\obj\Debug\net8.0\MyBlog.Application.AssemblyInfoInputs.cache
+C:\Users\sonaa\source\repos\MyBlog\MyBlog.Application\obj\Debug\net8.0\MyBlog.Application.AssemblyInfo.cs
+C:\Users\sonaa\source\repos\MyBlog\MyBlog.Application\obj\Debug\net8.0\MyBlog.Application.csproj.CoreCompileInputs.cache
+C:\Users\sonaa\source\repos\MyBlog\MyBlog.Application\obj\Debug\net8.0\MyBlog.Application.dll
+C:\Users\sonaa\source\repos\MyBlog\MyBlog.Application\obj\Debug\net8.0\refint\MyBlog.Application.dll
+C:\Users\sonaa\source\repos\MyBlog\MyBlog.Application\obj\Debug\net8.0\MyBlog.Application.pdb
+C:\Users\sonaa\source\repos\MyBlog\MyBlog.Application\obj\Debug\net8.0\ref\MyBlog.Application.dll
+C:\Users\sonaa\source\repos\MyBlog\MyBlog.Application\obj\Debug\net8.0\MyBlog.Application.csproj.AssemblyReference.cache
+C:\Users\sonaa\source\repos\MyBlog\MyBlog.Application\bin\Debug\net8.0\MyBlog.Domain.dll
+C:\Users\sonaa\source\repos\MyBlog\MyBlog.Application\bin\Debug\net8.0\MyBlog.Infrastructure.dll
+C:\Users\sonaa\source\repos\MyBlog\MyBlog.Application\bin\Debug\net8.0\MyBlog.Domain.pdb
+C:\Users\sonaa\source\repos\MyBlog\MyBlog.Application\bin\Debug\net8.0\MyBlog.Infrastructure.pdb
+C:\Users\sonaa\source\repos\MyBlog\MyBlog.Application\obj\Debug\net8.0\MyBlog.A.BA2527CD.Up2Date

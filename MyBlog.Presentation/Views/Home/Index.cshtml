@@ -1,0 +1,124 @@
+﻿@model IEnumerable<MyBlog.Presentation.Models.GuestArticleListVM>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .card-body {
+        font-family: -webkit-match-parent;
+        font-size: 14px;
+    }
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px; /* Kartlar arasındaki boşluk */
+    }
+    .card-custom {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .card-img-top {
+        height: 200px;
+        width:100%;
+        margin-bottom:12px;
+        margi
+        object-fit: cover;
+    }
+
+    .card-body {
+        flex: 1 1 auto;
+    }
+
+    .metafooter {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-left:5px;
+    }
+
+    .meta-footer-thumb {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 10px;
+    }
+
+        .meta-footer-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    .wrapfooter {
+        display: flex;
+        align-items: center;
+    }
+
+    .post-read-more {
+        margin-left: auto;
+    }
+    .card-title{
+        font-size:25px;
+        padding:5px;
+    }
+
+    .col-md-4 {
+        padding:7px;
+    }
+    .card-text{
+        margin-left: 5px;
+    }
+    
+  
+</style>
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 d-flex align-items-stretch">
+                <div class="card mb-4 card-custom">
+                    <div class="card-body">
+                        @if (item.Image is null)
+                        {
+                            <div class="card-img-top" style="background-color: gray; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                Resim Yok
+                            </div>
+                        }
+                        else
+                        {
+                            <img class="card-img-top" src="@($"data:image/png;base64,{Convert.ToBase64String(item.Image)}")" />
+                        }
+                        <div>
+
+                        </div>
+                        <h2 class="card-title" >@Html.ActionLink(item.Title, "Read", new { id = item.Id })</h2>
+                        <div class="metafooter">
+                            <div class="wrapfooter">
+                                <span class="meta-footer-thumb">
+                                    <img src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x" alt="@item.AuthorFirstName @item.AuthorLastName">
+                                </span>
+                                <span class="author-meta">
+                                    <span class="post-name">@item.AuthorFirstName @item.AuthorLastName</span><br />
+                                    <span class="post-date">@item.CreadtedDate.ToShortDateString()</span>
+                                    <span class="dot"></span>
+                                    <span class="post-read">@item.ReadTime min read</span>
+                                </span>
+                            </div>
+                        </div>
+                        <p class="card-text"><small class="text-muted">@item.ViewCount views</small></p>
+                    </div>
+                   
+                </div>
+            </div>
+        }
+    </div>
+    <div>
+
+    </div>
+</div>

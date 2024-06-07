@@ -1,0 +1,68 @@
+﻿@model IEnumerable<MyBlog.Presentation.Models.GuestArticleListVM>
+
+@{
+    ViewData["Title"] = "GetArticles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                Author Full Name
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReadTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ViewCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreadtedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @if (item.Image is null)
+                    {
+                        <p style="color:red; font-weight:bold; ">Resim Yok</p>
+                    }
+                    else
+                    {
+                        <img style="height: 50px; width: auto; object-fit: cover" src="@($"data:image/png;base64,{Convert.ToBase64String(item.Image)}")" />
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AuthorFirstName) @Html.DisplayFor(modelItem => item.AuthorLastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReadTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ViewCount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreadtedDate)
+                </td>
+                <td>
+                    @Html.ActionLink("Read", "Read", new { id = item.Id })
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

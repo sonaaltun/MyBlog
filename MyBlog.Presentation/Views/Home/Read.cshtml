@@ -1,0 +1,69 @@
+﻿@model MyBlog.Presentation.Models.GuestArticleReadVM
+
+
+@{
+    ViewData["Title"] = "Read";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<!-- Begin Article -->
+<div class="container">
+    <div class="row">
+        <!-- Begin Post -->
+        <div class="col-md-8 col-md-offset-2 col-xs-12">
+            <div class="mainheading">
+                <h1 class="posttitle">@Html.DisplayFor(model => model.Title)</h1>
+            </div>
+
+            <!-- Begin Top Meta -->
+            <div class="row post-top-meta">
+                <div class="col-md-2">
+                    <!-- Author's profile picture -->
+                </div>
+                <div class="col-md-10">
+                    <!-- Author's name and publication date -->
+                    <a class="link-dark" href="#">@Html.DisplayFor(model => model.AuthorFirstName) @Html.DisplayFor(model => model.AuthorLastName)</a>
+                    <span class="post-date" >Publication Date : @Model.CreatedDate</span><span class="dot"></span><span class="post-read">Reading Time</span>
+                </div>
+            </div>
+            <!-- End Top Meta -->
+            <!-- Begin Featured Image -->
+            @if (Model.Image == null)
+            {
+                <img class="featured-image img-fluid" src="/assets/img/no-img.jpg"/>
+            }
+            else
+            {
+                
+            <img class="featured-image img-fluid" src="@($"data:image/png;base64,{Convert.ToBase64String(Model.Image)}")" alt="Featured Image">
+            }
+            <!-- End Featured Image -->
+            <!-- Begin Post Content -->
+            <div class="article-post">
+                <!-- Article content -->
+                <p>@Html.DisplayFor(model => model.Content)</p>
+            </div>
+            <!-- End Post Content -->
+            <!-- Begin Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    <!-- Tags -->
+                    <li><a href="#">Tag1</a></li>
+                    <li><a href="#">Tag2</a></li>
+                    <li><a href="#">Tag3</a></li>
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+        </div>
+        <!-- End Post -->
+    </div>
+    <div class="col-md-4 col-xs-12">
+        <div class="sidebar">
+            <!-- Include content from another CSHTML -->
+           
+        </div>
+    </div>
+</div>
+<!-- End Article -->

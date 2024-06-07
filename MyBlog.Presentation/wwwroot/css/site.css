@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 400px;
+    max-width: 100%;
+}
+
+.form-container {
+    padding: 30px;
+}
+
+.form {
+    display: block;
+}
+
+    .form a.navbar-brand {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        text-decoration: none;
+        color: #333;
+    }
+
+        .form a.navbar-brand img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .form a.navbar-brand h2 {
+            margin:20px ;
+            font-size: 24px;
+            color: #333;
+        }
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .form-group input {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        display: block;
+        font-size: 16px;
+        padding: 10px;
+        width: 100%;
+    }
+
+        .form-group input[type="submit"] {
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 10px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+            .form-group input[type="submit"]:hover {
+                background-color: #555;
+            }
+
+.form p {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+}
+
+    .form p a {
+        color: #333;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        .form p a:hover {
+            text-decoration: underline;
+        }
+

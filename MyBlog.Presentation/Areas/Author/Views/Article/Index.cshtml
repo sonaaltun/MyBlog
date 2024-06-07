@@ -1,0 +1,117 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<MyBlog.Presentation.Areas.Author.Models.ArticleVMs.ArticleListVM>
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string userName = UserManager.GetUserAsync(User).Result.UserName;
+}
+
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">@userName'in Makaleleri</h1>
+
+    <p class="text-right">
+        <a asp-action="Create" class="btn btn-medium">Yeni Makale Oluştur</a>
+    </p>
+
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>
+                <th>
+                   Author's Name
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @if (item.Image is null)
+                        {
+                            <p class="text-danger font-weight-bold">Resim Yok</p>
+                        }
+                        else
+                        {
+                            <img style="height: 50px; width: auto; object-fit: cover" src="@($"data:image/png;base64,{Convert.ToBase64String(item.Image)}")" />
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AuthorFirstName) @Html.DisplayFor(modelItem => item.AuthorLastName)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Düzenle</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Detaylar</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .btn-medium {
+        display: inline-block;
+        background-color: #333;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+        .btn-medium:hover {
+            background-color: #555;
+            transform: scale(1.05);
+        }
+
+    .table {
+        background-color: #fff;
+        border: 1px solid #dee2e6;
+        box-shadow: 0 .125rem .25rem rgba(0, 0, 0, 0.075);
+    }
+
+        .table th, .table td {
+            vertical-align: middle;
+        }
+
+    .table-hover tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .thead-dark th {
+        background-color: #343a40;
+        color: #fff;
+        border-color: #454d55;
+    }
+
+    .text-danger {
+        color: #dc3545 !important;
+    }
+</style>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
