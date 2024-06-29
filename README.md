@@ -63,5 +63,3 @@ MVC Blog Uygulaması, ASP.NET MVC kullanılarak oluşturulmuş web tabanlı bir 
   -wwwroot: CSS, JavaScript ve resimler gibi statik dosyaları içerir.
  
 
-## Lisans
--Bu proje MIT Lisansı altında lisanslanmıştır..
